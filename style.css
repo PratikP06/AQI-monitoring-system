@@ -1,0 +1,103 @@
+
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: rgb(7, 7, 39);
+    color: white;
+    max-height: 1000px;
+    
+    
+}
+
+.container{
+    max-height: 800px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.nav{
+    display: flex;
+    align-items: center;
+    padding: 20px 45px;
+    background-color: rgb(0 0 0 / 32%);
+    justify-content: space-between;
+    
+}
+
+.tagline{
+    /* position: relative;
+    top: 35vh; */
+    margin: 35vh;
+    height: 30px;
+    
+}
+
+.description{
+    min-height: 500px;
+    /* position: relative; */
+    max-width: 70%;
+    margin: 35vh;
+    /* top: 90vh; */
+}
+
+.description p{
+    line-height: 2rem;
+    margin: 38px 37px;
+    font-size: 1.5rem;
+}
+
+.description h1{
+    font-size: 2.5rem;
+    color: #ff3c00;
+}
+
+.Data{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+
+}
+
+.nav-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 35px;
+    width: 80px;
+    background-color: #ff3c00;
+    border: none;
+    color: white;
+    border-radius: 10px;
+}
+
+.nav-button:hover{
+    background-color: #ff3c00ae;
+    transition-duration: 0.2s;
+
+}
+
+.grp{
+    min-height: 500px;
+    width: 30%;
+    margin: 35vh;
+    
+}
+.grp ul{
+    margin: 0 55px;
+}
+.grp h1{
+    color:#ff3c00;
+    font-size: 2.8rem;
+}
+.grp li{
+    list-style: none;
+    font-size: 1.8rem;
+    margin: 15px;
+}
+
