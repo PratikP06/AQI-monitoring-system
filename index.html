@@ -16,7 +16,7 @@
             <div class="logo">
                 <h1>DashBoarD<span style="color: black;">.</span></h1>
             </div>
-            
+
             <div class="Data">
                 <div class="nav-button">
                     <b>Current</b>
@@ -26,35 +26,53 @@
                 </div>
             </div>
 
-            
+
         </div>
     </header>
 
     <div class="container">
-        <div class="tagline" data-aos="fade-up" data-aos-anchor-placement = "top-bottom" data-aos-duration="1s" data-aos-delay=".3s" data-aos-anchor-placement = "top-bottom">
-            <div class="line"><h1>Welcome to live <br><span style="color: #00000091 ;">AIR QUALITY MONITORING</span> 
+        <div class="tagline" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-duration="1s"
+            data-aos-delay=".3s" data-aos-anchor-placement="top-bottom">
+            <div class="line">
+                <h1>Welcome to live <br><span style="color: #00000091 ;">AIR QUALITY MONITORING</span>
             </div>
             <div class="tag-img">
-            <img src="media/AQI.png" alt="">
+                <img src="media/AQI.png" alt="">
+            </div>
+
         </div>
-        
-        </div>
 
 
 
-        
+
     </div>
 
-    <div class="live">
+    <div class="live" data-aos="fade-up" data-aos-duration="1s" data-aos-delay=".3s"
+        data-aos-easing="cubic-bezier(0.4, 0, 1, 1)">
         <h1>
             Live Readings
         </h1>
-
+        <div class="btn" id="btn">
+            start Monitoring
+        </div>
         <div class="readingcards">
-            <div class="card"></div>
+            <div class="card">
+                <h1>AQI</h1>
+
+            </div>
+
+            <div class="card">
+                <h1>Temprature</h1>
+            </div>
+
+            <div class="card">
+                <h1>CO2</h1>
+            </div>
         </div>
 
-        
+
+
+
     </div>
 
     <!-- <main>
@@ -98,9 +116,22 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({
-            once : false,
+            once: false,
         });
-        
+
+        document.querySelector(".btn").addEventListener("click", function () {
+
+            console.log("hello bc");
+
+            document.querySelector(".btn").style.display = "none";
+            document.querySelectorAll(".card").forEach(element => {
+                element.style.display = "flex"
+            });
+
+        })
+
+
+
     </script>
 
 </body>
