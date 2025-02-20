@@ -141,34 +141,66 @@ body {
     box-shadow: #00000091 -2px 2px 6px;
 }
 
-
-.circle{
+.circle {
     position: relative;
-    width: 180px;
-    height: 180px;
+    width: 220px;
+    height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.outer{
+.outer {
     height: 180px;
     width: 180px;
     padding: 10px;
-    box-shadow: -6px 6px 10px -1px rgba(0, 0, 0, 0.15), 6px -6px 10px -1px rgba(255, 255, 255, 0.7);
+    box-shadow: -6px 6px 10px -1px rgba(0, 0, 0, 0.15),
+                6px -6px 10px -1px rgba(255, 255, 255, 0.7);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    
 }
 
-.inner{
-
+.inner {
     height: 140px;
     width: 140px;
-    
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 50%;
-    box-shadow: inset -6px 6px 10px -1px rgba(0, 0, 0, 0.15), 6px -6px 10px -1px rgba(255, 255, 255, 0.7);
+    box-shadow: inset -6px 6px 10px -1px rgba(0, 0, 0, 0.15),
+                6px -6px 10px -1px rgba(255, 255, 255, 0.7);
 }
 
+.inner h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+
+svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+circle {
+    fill: none;
+    stroke: url(#GradientColor);
+    stroke-width: 20;
+    stroke-dasharray: 450;
+    stroke-dashoffset: 450;
+    animation: anim 2s linear forwards;
+}
+
+@keyframes anim {
+    100% {
+        stroke-dashoffset: 157.5;
+    }
+}
 
 
 @media(max-width:600px) {
