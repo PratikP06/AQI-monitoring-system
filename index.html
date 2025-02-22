@@ -57,83 +57,25 @@
         </div>
         <div class="readingcards">
 
+
             <div class="card">
                 <h1>AQI</h1>
-                <div class="circle">
-                    <div class="outer">
-                        <div class="inner">
-                            <h3>65%</h3>
-
-                        </div>
-                    </div>
-
-                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 160 160" width="200" height="200" >
-                        <defs>
-                            <linearGradient id="GradientColor">
-                                <stop offset="0%" stop-color="#DA22FF" />
-                                <stop offset="100%" stop-color="#9733EE" />
-                            </linearGradient>
-                        </defs>
-                        <circle cx="80" cy="80" r="67" stroke-width="20" stroke-linecap="round" />
-                    </svg>
-                </div>
-
-
+                <span id="aqi-value" class="values">--</span>
             </div>
-
 
             <div class="card">
                 <h1>TEMPERATURE</h1>
-                <div class="circle">
-                    <div class="outer">
-                        <div class="inner">
-                            <h3>40c</h3>
-
-                        </div>
-                    </div>
-
-                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1"  viewBox="0 0 160 160" width="200" height="200" >
-                        <defs>
-                            <linearGradient id="GradientColor">
-                                <stop offset="0%" stop-color="#DA22FF" />
-                                <stop offset="100%" stop-color="#9733EE" />
-                            </linearGradient>
-                        </defs>
-                        <circle cx="80" cy="80" r="67" stroke-linecap="round" />
-                    </svg>
-                </div>
-
+                 <span id="temperature-value" class="values">--</span>
             </div>
-
-
 
             <div class="card">
                 <h1>HUMIDITY</h1>
-                <div class="circle">
-                    <div class="outer">
-                        <div class="inner">
-                            <h3>70%</h3>
-
-                        </div>
-                    </div>
-
-                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="200px" height="200px"  viewBox="0 0 160 160">
-                        <defs>
-                            <linearGradient id="GradientColor">
-                                <stop offset="0%" stop-color="#DA22FF" />
-                                <stop offset="100%" stop-color="#9733EE" />
-                            </linearGradient>
-                        </defs>
-                        <circle cx="80" cy="80" r="67" stroke-linecap="round" />
-                    </svg>
-                </div>
-
-
+                <span id="humidity-value" class="values">--</span>
             </div>
 
 
-
         </div>
+
 
 
 
@@ -179,25 +121,14 @@
 
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script type="module" src="/AQI-monitoring-system/js/script.js"></script>
+
     <script>
-        AOS.init({
-            once: false,
-        });
-
-        document.querySelector(".btn").addEventListener("click", function () {
-
-            console.log("hello bc");
-
-            document.querySelector(".btn").style.display = "none";
-            document.querySelectorAll(".card").forEach(element => {
-                element.style.display = "flex"
-            });
-
-        })
-
-
-
+        AOS.init({ once: false });
     </script>
+    
+
 
 </body>
 
