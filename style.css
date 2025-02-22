@@ -185,6 +185,10 @@ body {
         justify-content: center;
     }
 
+    .live h1{
+        font-size: 1.5rem;
+    }
+
     .card{
         display: none;
         align-items: center;
