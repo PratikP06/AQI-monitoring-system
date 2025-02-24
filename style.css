@@ -151,6 +151,32 @@ body {
     font-family: "DM Serif Text", serif;
 }
 
+
+.description{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    
+    min-height: 100vh;
+    flex-direction: column;
+    gap: 50px;
+    margin: 0 15%;
+}
+
+.description h1{
+    font-size: 2.5rem;
+    color: #14b1ff94;
+
+}
+
+.description p {
+    color: #335b6e;
+    padding: 30px;
+    font-size: 1.2rem;
+}
+
+
+
 @media(max-width:600px) {
 
     .tag-img img {
