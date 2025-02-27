@@ -83,7 +83,7 @@ window.onload = function () {
             });
 
             // Fetch data from Firebase only after clicking the button
-            const sensorRef = ref(database, "/sensorData");
+            const sensorRef = ref(database, "/sensor");
             onValue(sensorRef, (snapshot) => {
                 updateUI(snapshot);
             });
