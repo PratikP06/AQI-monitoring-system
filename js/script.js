@@ -10,7 +10,7 @@ const firebaseConfig = {
     authDomain: "aqi-tracker-8cfa9.firebaseapp.com",
     databaseURL: "https://aqi-tracker-8cfa9-default-rtdb.asia-southeast1.firebasedatabase.app",
     projectId: "aqi-tracker-8cfa9",
-    storageBucket: "aqi-tracker-8cfa9.firebasestorage.app",
+    storageBucket: "aqi-tracker-8cfa9.appspot.com", // Fixed
     messagingSenderId: "536444195734",
     appId: "1:536444195734:web:bc71104de1c34c705883b7"
 };
@@ -26,6 +26,12 @@ function updateUI(snapshot) {
         let aqiElement = document.getElementById("aqi-value");
         let tempElement = document.getElementById("temperature-value");
         let humidityElement = document.getElementById("humidity-value");
+
+        // Ensure elements exist
+        if (!aqiElement || !tempElement || !humidityElement) {
+            console.error("One or more elements not found!");
+            return;
+        }
 
         animateCount(aqiElement, parseInt(aqiElement.textContent) || 0, data.aqi, 1000);
         animateCount(tempElement, parseFloat(tempElement.textContent) || 0, data.temperature, 1000, "°C");
@@ -43,7 +49,9 @@ function animateCount(element, start, end, duration, unit = "") {
     function step(timestamp) {
         if (!startTime) startTime = timestamp;
         let progress = (timestamp - startTime) / duration;
-        let value = Math.floor(start + range * progress);
+        
+        let value = unit === "°C" ? (start + range * progress).toFixed(1) : Math.floor(start + range * progress);
+        
         element.textContent = value + unit;
 
         if (progress < 1) {
@@ -59,28 +67,28 @@ function animateCount(element, start, end, duration, unit = "") {
 // Function to start monitoring
 window.onload = function () {
     const startButton = document.getElementById("btn");
+    let monitoringStarted = false; // Prevent multiple listeners
 
     if (startButton) {
         startButton.addEventListener("click", function () {
-            console.log("Monitoring started...");
+            if (monitoringStarted) return;
+            monitoringStarted = true;
 
-            startButton.style.display="none";
-            
+            console.log("Monitoring started...");
+            startButton.style.display = "none";
+
             // Show the reading cards
             document.querySelectorAll(".card").forEach(element => {
-                element.style.display="flex";
-                
-            }); 
-
+                element.style.display = "flex";
+            });
 
             // Fetch data from Firebase only after clicking the button
             const sensorRef = ref(database, "/sensorData");
             onValue(sensorRef, (snapshot) => {
                 updateUI(snapshot);
-            }, { onlyOnce: false }); // Keeps listening for updates
+            });
         });
     } else {
         console.error("Start Monitoring button not found!");
     }
 };
-
