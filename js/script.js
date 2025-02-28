@@ -1,25 +1,23 @@
-// Import Firebase
+
 console.log("Firebase script loaded!");
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-app.js";
 import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-database.js";
 
-// Firebase Configuration
 const firebaseConfig = {
     apiKey: "AIzaSyC7lBEXdzmLYRiWQV8OBr1HzQv_wsMY5rE",
     authDomain: "aqi-tracker-8cfa9.firebaseapp.com",
     databaseURL: "https://aqi-tracker-8cfa9-default-rtdb.asia-southeast1.firebasedatabase.app",
     projectId: "aqi-tracker-8cfa9",
-    storageBucket: "aqi-tracker-8cfa9.appspot.com", // Fixed
+    storageBucket: "aqi-tracker-8cfa9.appspot.com",
     messagingSenderId: "536444195734",
     appId: "1:536444195734:web:bc71104de1c34c705883b7"
 };
 
-// Initialize Firebase
+
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 
-// Function to update UI with Firebase data
 function updateUI(snapshot) {
     if (snapshot.exists()) {
         let data = snapshot.val();
@@ -27,7 +25,7 @@ function updateUI(snapshot) {
         let tempElement = document.getElementById("temperature-value");
         let humidityElement = document.getElementById("humidity-value");
 
-        // Ensure elements exist
+        
         if (!aqiElement || !tempElement || !humidityElement) {
             console.error("One or more elements not found!");
             return;
@@ -41,7 +39,7 @@ function updateUI(snapshot) {
     }
 }
 
-// Function to animate numbers
+
 function animateCount(element, start, end, duration, unit = "") {
     let range = end - start;
     let startTime = null;
@@ -57,17 +55,16 @@ function animateCount(element, start, end, duration, unit = "") {
         if (progress < 1) {
             requestAnimationFrame(step);
         } else {
-            element.textContent = end + unit; // Ensure final value is set
+            element.textContent = end + unit; 
         }
     }
 
     requestAnimationFrame(step);
 }
 
-// Function to start monitoring
 window.onload = function () {
     const startButton = document.getElementById("btn");
-    let monitoringStarted = false; // Prevent multiple listeners
+    let monitoringStarted = false; 
 
     if (startButton) {
         startButton.addEventListener("click", function () {
@@ -77,12 +74,11 @@ window.onload = function () {
             console.log("Monitoring started...");
             startButton.style.display = "none";
 
-            // Show the reading cards
+           
             document.querySelectorAll(".card").forEach(element => {
                 element.style.display = "flex";
             });
 
-            // Fetch data from Firebase only after clicking the button
             const sensorRef = ref(database, "/sensor");
             onValue(sensorRef, (snapshot) => {
                 updateUI(snapshot);
